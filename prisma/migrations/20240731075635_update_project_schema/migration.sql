@@ -1,5 +1,0 @@
--- AlterTable
-ALTER TABLE "Project" ADD COLUMN     "details" VARCHAR(5000),
-ADD COLUMN     "endDate" TIMESTAMP(3),
-ADD COLUMN     "files" TEXT[],
-ADD COLUMN     "startDate" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
