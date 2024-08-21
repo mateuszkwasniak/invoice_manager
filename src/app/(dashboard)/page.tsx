@@ -106,7 +106,7 @@ export default async function HomePage() {
             <h3 className="text-xl font-semibold text-muted-foreground ml-5 mr-auto">
               Ostatnie płatności:
             </h3>
-            {recentPayments?.length && (
+            {recentPayments?.length ? (
               <ul className="flex flex-col w-full md:w-[95%] mb-12">
                 {recentPayments.map((payment) => (
                   <li
@@ -155,8 +155,7 @@ export default async function HomePage() {
                   </li>
                 ))}
               </ul>
-            )}
-
+            ) : null}
             <h3 className="text-xl font-semibold text-muted-foreground ml-5 mr-auto">
               Najnowsze firmy i projekty:
             </h3>
