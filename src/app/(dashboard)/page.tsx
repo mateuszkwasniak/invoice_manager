@@ -101,60 +101,63 @@ export default async function HomePage() {
       </h1>
       <section className="h-fit w-full lg:w-[70%] xl:max-w-[800px] flex flex-col items-center gap-4">
         <Separator className="mb-4 shadow-sm" />
-        {recentCompanies.length ? (
+        {recentCompanies?.length ? (
           <>
-            <h3 className="text-xl font-semibold text-muted-foreground ml-5 mr-auto">
-              Ostatnie płatności:
-            </h3>
             {recentPayments?.length ? (
-              <ul className="flex flex-col w-full md:w-[95%] mb-12">
-                {recentPayments.map((payment) => (
-                  <li
-                    key={payment.id}
-                    className="w-full flex items-center justify-between gap-4"
-                  >
-                    <Link
-                      className="flex-1"
-                      href={`payments/${payment.company.project.slug}/${payment.company.slug}/${payment.slug}`}
+              <>
+                <h3 className="text-xl font-semibold text-muted-foreground ml-5 mr-auto">
+                  Ostatnie płatności:
+                </h3>
+                <ul className="flex flex-col w-full md:w-[95%] mb-12">
+                  {recentPayments.map((payment) => (
+                    <li
+                      key={payment.id}
+                      className="w-full flex items-center justify-between gap-4"
                     >
-                      <div
-                        className={`p-3 flex items-center justify-between w-full border-b ${
-                          !payment.paid
-                            ? "bg-red-50 hover:bg-red-100"
-                            : "hover:bg-muted"
-                        } transition duration-300`}
+                      <Link
+                        className="flex-1"
+                        href={`payments/${payment.company.project.slug}/${payment.company.slug}/${payment.slug}`}
                       >
-                        <div className="flex flex-col gap-1">
-                          <p className="font-semibold">
-                            {payment.title}
+                        <div
+                          className={`p-3 flex items-center justify-between w-full border-b ${
+                            !payment.paid
+                              ? "bg-red-50 dark:bg-red-900 hover:bg-red-100 dark:hover:bg-red-800 rounded-md"
+                              : "hover:bg-muted"
+                          } transition duration-300`}
+                        >
+                          <div className="flex flex-col gap-1">
+                            <p className="font-semibold">
+                              {payment.title}
 
-                            <span className="text-sm text-muted-foreground block">
-                              ({payment.company?.name})
+                              <span className="text-sm text-muted-foreground dark:text-muted-foreground block">
+                                ({payment.company?.name})
+                              </span>
+                            </p>
+                            <span className="text-xs text-muted-foreground">
+                              {payment.paymentDate.toLocaleDateString("PL")}
                             </span>
-                          </p>
-                          <span className="text-xs text-muted-foreground">
-                            {payment.paymentDate.toLocaleDateString("PL")}
-                          </span>
+                          </div>
+                          <div>
+                            <p className="text-sm font-semibold">
+                              {convertNumberToPrice(payment.price.toNumber())}{" "}
+                              zł
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-sm font-semibold">
-                            {convertNumberToPrice(payment.price.toNumber())} zł
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                    <SelectProjectAndCompanyWithRedirectButton
-                      variant="ghost"
-                      size="icon"
-                      href="payments/new"
-                      projectId={payment.company.project.id}
-                      companyId={payment.company.id}
-                    >
-                      <PlusCircle />
-                    </SelectProjectAndCompanyWithRedirectButton>
-                  </li>
-                ))}
-              </ul>
+                      </Link>
+                      <SelectProjectAndCompanyWithRedirectButton
+                        variant="ghost"
+                        size="icon"
+                        href="payments/new"
+                        projectId={payment.company.project.id}
+                        companyId={payment.company.id}
+                      >
+                        <PlusCircle />
+                      </SelectProjectAndCompanyWithRedirectButton>
+                    </li>
+                  ))}
+                </ul>
+              </>
             ) : null}
             <h3 className="text-xl font-semibold text-muted-foreground ml-5 mr-auto">
               Najnowsze firmy i projekty:

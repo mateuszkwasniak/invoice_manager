@@ -87,7 +87,7 @@ export default function RecentProjectCard({
                   <div
                     className={`p-3 flex items-center justify-between w-full border-b ${
                       !payment.paid
-                        ? "bg-red-50 hover:bg-red-100"
+                        ? "bg-red-50 dark:bg-red-900 hover:bg-red-100 dark:hover:bg-red-800 rounded-md"
                         : "hover:bg-muted"
                     } transition duration-300`}
                   >
