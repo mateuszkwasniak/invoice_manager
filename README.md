@@ -10,11 +10,9 @@ Invoice Manager is a [Next.js](https://nextjs.org/) project bootstrapped with [`
 
 4. Clone this project's GitHub repository.
 
-5. Open CLI and navigate to the project's directory.
+5. Create two files in the project's directory: ".env" and ".env.local".
 
-6. Create two files in the project's directory: ".env" and ".env.local".
-
-7. Inside ".env" create the environmental variable with your database connection URL:
+6. Inside ".env" create the environmental variable with your database connection URL:
 
    DATABASE_URL="postgresql://username:password@localhost:port/database_name?schema=public"
 
@@ -24,20 +22,29 @@ Invoice Manager is a [Next.js](https://nextjs.org/) project bootstrapped with [`
    - port: PostgreSQL port - the default is '5432',
    - database_name: name of the created database.
 
-8. Inside ".env.local" create 3 environmental variables:
+7. Inside ".env.local" create 3 environmental variables:
 
-   DATABASE_URL="postgresql://username:password@localhost:port/database_name?schema=public" // the same as in ".env"
+   `DATABASE_URL="postgresql://username:password@localhost:port/database_name?schema=public"`
+   the same as in ".env"
 
-   AUTH_SECRET=jNBnjgh5fz+9h8PQvphv4SUr54JUXakxnwcGpPOQ8ww= // the secret required to sign the session JWT token - in order to generate 32 random bytes you can use the following command: `openssl rand -base64 32`
+   `AUTH_SECRET=your_32_byte_secret`
+   the secret required to sign the session JWT token - in order to generate 32 random bytes you can use the following command:
+   `openssl rand -base64 32`
 
-   AUTH_TRUST_HOST=true // required by the session management library
+   `AUTH_TRUST_HOST=true`
+   required by the session management library
 
-9. Install project's dependencies by running: 'npm install' in your CLI.
+8. Install project's dependencies by running:
+   `npm install`
 
-10. Run 'npx prisma migrate dev' in order to create tables and structures in your PostgreSQL database according to the project's model.
+9. In order to create tables and structures in your PostgreSQL database according to the project's model, execute:
+   `npx prisma migrate deploy`
 
-11. Generate Prisma Client to enable interaction between the app and database by running: 'npx prisma generate'.
+10. Generate Prisma Client to enable interaction between the app and database with:
+    `npx prisma generate`.
 
-12. Build the project using: 'npm run build' command.
+11. Build the project using:
+    `npm run build`.
 
-13. Start application: 'npm start'.
+12. Start application:
+    `npm start`.
