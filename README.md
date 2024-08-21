@@ -14,7 +14,7 @@ Invoice Manager is a [Next.js](https://nextjs.org/) project bootstrapped with [`
 
 6. Inside ".env" create the environmental variable with your database connection URL:
 
-   DATABASE_URL="postgresql://username:password@localhost:port/database_name?schema=public"
+   `DATABASE_URL="postgresql://username:password@localhost:port/database_name?schema=public`
 
    - username: your PostgreSQL username,
    - password: your database password,
@@ -25,13 +25,17 @@ Invoice Manager is a [Next.js](https://nextjs.org/) project bootstrapped with [`
 7. Inside ".env.local" create 3 environmental variables:
 
    `DATABASE_URL="postgresql://username:password@localhost:port/database_name?schema=public"`
+
    the same as in ".env"
 
    `AUTH_SECRET=your_32_byte_secret`
+
    the secret required to sign the session JWT token - in order to generate 32 random bytes you can use the following command:
+
    `openssl rand -base64 32`
 
    `AUTH_TRUST_HOST=true`
+
    required by the session management library
 
 8. Install project's dependencies by running:
