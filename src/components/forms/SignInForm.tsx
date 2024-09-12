@@ -49,7 +49,11 @@ export default function SignInForm() {
     <Card>
       <CardContent className="p-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-12">
+          <form
+            data-testid="sign-in-form"
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex gap-12"
+          >
             <div className="w-full flex flex-col space-y-8">
               <FormField
                 control={form.control}
@@ -60,7 +64,7 @@ export default function SignInForm() {
                     <FormControl>
                       <Input placeholder="Jan Kowalski" {...field} />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage data-testid="login-error" />
                   </FormItem>
                 )}
               />
@@ -77,7 +81,7 @@ export default function SignInForm() {
                         type="password"
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage data-testid="pwd-error" />
                   </FormItem>
                 )}
               />

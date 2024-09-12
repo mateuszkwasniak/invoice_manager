@@ -21,7 +21,7 @@ export default function PaymentSearch() {
       (queryParam && queryParam !== searched) ||
       (!queryParam && searched !== "")
     ) {
-      const paramsObj = Object.fromEntries(params.entries());
+      const paramsObj = Object.fromEntries(params?.entries());
       if (searched !== "") {
         paramsObj.query = searched;
       } else {

@@ -14,7 +14,7 @@ export const validateFilesCount = (
   newFilesCount: number,
   updatedFilesCount: number
 ) => {
-  if (newFilesCount + updatedFilesCount > 15) {
+  if (newFilesCount + updatedFilesCount > 20) {
     return {
       ok: false,
       message: "W formularzu zostały przesłane nieprawidłowe pliki.",
@@ -55,8 +55,8 @@ export const validateUpdatedFiles = (
 export const validateFiles = (
   files: FormDataEntryValue[]
 ): ActionResponse<null> => {
-  if (files.length > 15) {
-    return { ok: false, message: "Maksymalna liczba plików to 15." };
+  if (files.length > 20) {
+    return { ok: false, message: "Maksymalna liczba plików to 20." };
   } else {
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
@@ -67,8 +67,8 @@ export const validateFiles = (
           message: "W formularzu zostały przesłane nieprawidłowe pliki.",
         };
       }
-      if (file.size > 10 * 1024 * 1024) {
-        return { ok: false, message: "Maksymalny rozmiar pliku to 10 MB." };
+      if (file.size > 50 * 1024 * 1024) {
+        return { ok: false, message: "Maksymalny rozmiar pliku to 50 MB." };
       }
 
       if (!allowedFiles.includes(file.type)) {

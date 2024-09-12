@@ -289,6 +289,7 @@ export default function PaymentForm() {
                           </FormLabel>
                           <FormControl>
                             <Switch
+                              className="dark:!bg-muted-foreground"
                               checked={field.value}
                               onCheckedChange={field.onChange}
                             />

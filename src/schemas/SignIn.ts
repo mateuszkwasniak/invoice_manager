@@ -3,7 +3,7 @@ import z from "zod";
 export const SignInFormSchema = z.object({
   name: z
     .string({ required_error: "Nazwa użytkownika jest wymagana" })
-    .min(1, "Nazwa użytkownika musi zawierać przynajmniej jeden znak")
+    .min(1, "Nazwa użytkownika jest wymagana")
     .max(255, "Nazwa użytkownika składa się maksymalnie z 255 znaków"),
   password: z
     .string({ required_error: "Hasło jest wymagane" })

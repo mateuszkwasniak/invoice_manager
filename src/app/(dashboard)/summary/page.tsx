@@ -45,14 +45,15 @@ export default async function SummaryPage({
       },
       select: {
         id: true,
+        slug: true,
         project: {
           select: {
             id: true,
             name: true,
+            slug: true,
           },
         },
         name: true,
-
         startDate: true,
         endDate: true,
         budgets: {
@@ -145,6 +146,8 @@ export default async function SummaryPage({
 
           <div className="">
             <NotPaidCard
+              project={company.project.slug}
+              company={company.slug}
               payments={company.payments.filter((payment) => !payment.paid)}
             />
           </div>

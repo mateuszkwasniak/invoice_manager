@@ -14,8 +14,12 @@ import { Separator } from "../ui/separator";
 import { convertNumberToPrice } from "@/lib/utils/numbers";
 
 export default function NotPaidCard({
+  project,
+  company,
   payments,
 }: {
+  project: string;
+  company: string;
   payments: {
     id: string;
     slug: string;
@@ -45,7 +49,7 @@ export default function NotPaidCard({
               <>
                 <Link
                   key={payment.id}
-                  href={`/payments/${payment.slug}`}
+                  href={`/payments/${project}/${company}/${payment.slug}`}
                   className="p-4 hover:bg-muted/50 text-sm flex items-center justify-between gap-8"
                 >
                   <span className="font-semibold">{payment.title}</span>{" "}

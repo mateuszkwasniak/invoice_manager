@@ -63,10 +63,10 @@ export default function PaymentsTable({
             />
             <Link
               href="payments/new"
-              className="ml-auto h-10 flex items-center gap-1 rounded md px-3 text-secondary text-sm font-semibold dark:bg-zinc-300 hover:dark:bg-zinc-200 transition duration-300"
+              className="ml-auto h-10 flex items-center gap-1 rounded px-3 text-secondary text-sm font-semibold bg-primary hover:opacity-85 dark:bg-zinc-300 hover:dark:bg-zinc-200 transition duration-300"
             >
               <Plus className="w-4 h-4" />
-              Nowa{" "}
+              Nowa
             </Link>
           </div>
         </div>
@@ -95,6 +95,7 @@ export default function PaymentsTable({
                   href={`/payments/${payment.company.project.slug}/${payment.company.slug}/${payment.slug}`}
                 >
                   <TableRow
+                    data-testid="payment-row"
                     className={`cursor-pointer ${
                       !payment.paid &&
                       "bg-red-50 dark:bg-red-900 hover:bg-red-100 hover:dark:bg-red-800"

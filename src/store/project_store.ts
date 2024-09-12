@@ -191,7 +191,7 @@ export const useProjectStore = create<ProjectStore>()(
       },
       fetchUserProjectCompanies: async (projectId: string) => {
         try {
-          const response = await fetch(`/api/companies?pid=${projectId}`);
+          const response = await fetch(`/test-api/companies?pid=${projectId}`);
 
           if (!response.ok) {
             throw new Error();

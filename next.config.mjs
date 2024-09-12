@@ -30,6 +30,14 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "img.onet.pl",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
